@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Destiny Fit Club — Start Here</title>
+<style>
+  :root{
+    --bg:#FAEDEA;
+    --surface:#FFF8F6;
+    --surface-2:#F7E2DF;
+    --rose:#C4607A;
+    --rose-dark:#9E455F;
+    --pink:#DD7E92;
+    --gold:#C7A24E;
+    --text:#3E3436;
+    --muted:#76676B;
+    --white:#FFFFFF;
+    --line:rgba(158,69,95,.14);
+    --shadow:0 18px 50px rgba(92,54,63,.08);
+    --radius-xl:30px;
+    --radius-lg:22px;
+    --radius-md:16px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(circle at top right, rgba(221,126,146,.14), transparent 26%),
+      radial-gradient(circle at 8% 28%, rgba(199,162,78,.10), transparent 22%),
+      var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+
+  .page{
+    width:min(1120px, calc(100% - 32px));
+    margin:0 auto;
+    padding:28px 0 72px;
+  }
+
+  .hero{
+    position:relative;
+    overflow:hidden;
+    border-radius:36px;
+    padding:72px 64px;
+    background:linear-gradient(145deg, #FFF9F7 0%, #F7E1DE 100%);
+    border:1px solid rgba(196,96,122,.14);
+    box-shadow:var(--shadow);
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    width:360px;height:360px;
+    border-radius:50%;
+    right:-120px;top:-130px;
+    background:rgba(196,96,122,.10);
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:800;
+    color:var(--rose-dark);
+    margin-bottom:18px;
+  }
+
+  h1,h2,h3{
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight:600;
+    letter-spacing:-.02em;
+    margin:0;
+  }
+
+  h1{
+    max-width:760px;
+    font-size:clamp(42px, 7vw, 78px);
+    line-height:.98;
+  }
+
+  .hero p{
+    max-width:760px;
+    font-size:18px;
+    color:var(--muted);
+    margin:24px 0 0;
+  }
+
+  .hero-note{
+    margin-top:32px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 16px;
+    border-radius:999px;
+    background:rgba(255,255,255,.68);
+    border:1px solid var(--line);
+    font-size:14px;
+    font-weight:700;
+    color:var(--rose-dark);
+  }
+
+  section{margin-top:28px}
+
+  .panel{
+    background:rgba(255,255,255,.62);
+    backdrop-filter: blur(7px);
+    border:1px solid rgba(196,96,122,.13);
+    border-radius:var(--radius-xl);
+    padding:42px;
+    box-shadow:0 12px 32px rgba(92,54,63,.05);
+  }
+
+  .section-head{
+    max-width:720px;
+    margin-bottom:28px;
+  }
+
+  .section-head h2{
+    font-size:clamp(30px, 4vw, 48px);
+    line-height:1.08;
+  }
+
+  .section-head p{
+    color:var(--muted);
+    margin:12px 0 0;
+  }
+
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+  }
+
+  .step{
+    padding:22px 18px;
+    border-radius:20px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    min-height:158px;
+  }
+
+  .num{
+    width:34px;height:34px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:var(--rose);
+    color:white;
+    font-weight:800;
+    font-size:14px;
+    margin-bottom:18px;
+  }
+
+  .step strong{display:block;font-size:16px;margin-bottom:6px}
+  .step span{font-size:14px;color:var(--muted)}
+
+  .club-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+
+  .club-card{
+    padding:28px;
+    border-radius:24px;
+    background:var(--surface);
+    border:1px solid var(--line);
+  }
+
+  .club-card .label{
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:800;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+
+  .club-card h3{
+    font-size:28px;
+    margin-bottom:10px;
+  }
+
+  .club-card p{
+    margin:0;
+    color:var(--muted);
+  }
+
+  .goal-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+
+  .goal{
+    position:relative;
+    padding:30px;
+    border-radius:24px;
+    background:linear-gradient(180deg,#FFFDFC,#FFF5F3);
+    border:1px solid var(--line);
+  }
+
+  .goal h3{font-size:28px;margin-bottom:10px}
+  .goal p{margin:0 0 14px;color:var(--muted)}
+  .goal ul{margin:0;padding-left:18px;color:var(--text)}
+  .goal li{margin:5px 0}
+
+  .training-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+
+  .training{
+    padding:28px;
+    border-radius:24px;
+    background:var(--surface);
+    border:1px solid var(--line);
+  }
+  .training h3{font-size:26px;margin-bottom:10px}
+  .training p{color:var(--muted);margin:0 0 14px}
+  .training ul{margin:0;padding-left:18px}
+
+  .baseline{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:20px;
+    align-items:start;
+  }
+
+  .baseline-card{
+    padding:28px;
+    border-radius:24px;
+    background:var(--surface);
+    border:1px solid var(--line);
+  }
+
+  .baseline-card h3{font-size:28px;margin-bottom:10px}
+  .baseline-card p{color:var(--muted);margin:0 0 18px}
+
+  .metrics{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .metric{
+    background:var(--surface-2);
+    border-radius:16px;
+    padding:18px;
+  }
+  .metric strong{display:block;margin-bottom:3px}
+  .metric span{font-size:13px;color:var(--muted)}
+
+  .callout{
+    background:linear-gradient(145deg, var(--rose-dark), var(--rose));
+    color:white;
+    border-radius:32px;
+    padding:44px;
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    gap:24px;
+    align-items:center;
+    box-shadow:var(--shadow);
+  }
+
+  .callout .eyebrow{color:#F8DDD9}
+  .callout h2{font-size:clamp(32px,4vw,52px);line-height:1.05}
+  .callout p{color:rgba(255,255,255,.82);margin:14px 0 0;max-width:700px}
+  .callout-side{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:24px;
+    padding:24px;
+  }
+  .callout-side strong{display:block;font-size:18px;margin-bottom:8px}
+  .callout-side span{font-size:14px;color:rgba(255,255,255,.82)}
+
+  .pro{
+    background:#2F2729;
+    color:white;
+    border-radius:32px;
+    padding:46px;
+    display:grid;
+    grid-template-columns:1.35fr .65fr;
+    gap:26px;
+    align-items:center;
+  }
+
+  .pro h2{font-size:clamp(32px,4vw,50px);line-height:1.06}
+  .pro p{color:#D8CBCD;max-width:650px}
+  .pro a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    background:#FFF6F3;
+    color:var(--rose-dark);
+    font-weight:800;
+    padding:15px 22px;
+    border-radius:999px;
+    min-height:52px;
+  }
+
+  .footer{
+    text-align:center;
+    padding:30px 10px 0;
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  @media (max-width: 900px){
+    .hero{padding:54px 34px}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .goal-grid,.club-grid{grid-template-columns:1fr}
+    .training-grid{grid-template-columns:1fr}
+    .baseline,.callout,.pro{grid-template-columns:1fr}
+  }
+
+  @media (max-width: 560px){
+    .page{width:min(100% - 20px,1120px);padding-top:10px}
+    .hero{padding:42px 24px;border-radius:26px}
+    .panel{padding:28px 20px;border-radius:24px}
+    .steps{grid-template-columns:1fr}
+    .metrics{grid-template-columns:1fr}
+    .callout,.pro{padding:30px 22px;border-radius:24px}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <section class="hero">
+    <div class="eyebrow">Destiny Fit Club • Start Here</div>
+    <h1>Your starting point for building a stronger, healthier routine.</h1>
+    <p>
+      Welcome to <strong>Destiny Fit Club</strong>. Before jumping into workouts, use this page to understand how the club works, what’s included, and the simplest way to begin.
+      You do not need to already be in shape, know your way around a gym, or have everything figured out. Start exactly where you are.
+    </p>
+    <div class="hero-note">Simple plan. Beginner-friendly guidance. Progress at your pace.</div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head">
+      <div class="eyebrow">Your First Moves</div>
+      <h2>Start with these five steps.</h2>
+      <p>Everything inside Destiny Fit Club is organized to make getting started simple and less overwhelming.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><div class="num">1</div><strong>Learn the basics</strong><span>Understand how the club is organized and what to focus on first.</span></div>
+      <div class="step"><div class="num">2</div><strong>Choose your goal</strong><span>Pick the result that matters most to you right now.</span></div>
+      <div class="step"><div class="num">3</div><strong>Choose your setup</strong><span>Train at home, in the gym, or use a combination of both.</span></div>
+      <div class="step"><div class="num">4</div><strong>Know your baseline</strong><span>Record a few starting-point markers if they are useful to you.</span></div>
+      <div class="step"><div class="num">5</div><strong>Begin your first week</strong><span>Move into the 7-Day Destiny Starter Plan and begin Day 1.</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head">
+      <div class="eyebrow">Inside The Free Club</div>
+      <h2>What you’ll use as a new member.</h2>
+      <p>The free club gives you the foundation you need to begin training with more confidence and structure.</p>
+    </div>
+
+    <div class="club-grid">
+      <div class="club-card">
+        <div class="label">01</div>
+        <h3>Fitness Basics</h3>
+        <p>Learn the fundamentals of training, exercise technique, recovery, consistency, and building a routine you can actually maintain.</p>
+      </div>
+      <div class="club-card">
+        <div class="label">02</div>
+        <h3>Nutrition Basics</h3>
+        <p>Learn straightforward nutrition principles that can support your goals without extreme diets or unnecessary complexity.</p>
+      </div>
+      <div class="club-card">
+        <div class="label">03</div>
+        <h3>7-Day Destiny Starter</h3>
+        <p>Put the basics into action with a beginner-friendly first week designed to help you stop overthinking and start moving.</p>
+      </div>
+      <div class="club-card">
+        <div class="label">04</div>
+        <h3>Community + Resources</h3>
+        <p>Use the club’s beginner resources, progress guidance, and community as support while you establish your routine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head">
+      <div class="eyebrow">Choose Your Direction</div>
+      <h2>Pick one primary fitness goal.</h2>
+      <p>You can always change your focus later. For now, choosing one main goal makes your training easier to understand and follow.</p>
+    </div>
+
+    <div class="goal-grid">
+      <div class="goal">
+        <h3>Build Glutes</h3>
+        <p>Choose this if your main priority is developing stronger, fuller glutes.</p>
+        <ul>
+          <li>Resistance training</li>
+          <li>Glute-focused exercises</li>
+          <li>Proper technique</li>
+          <li>Progressive overload</li>
+          <li>Recovery and consistent nutrition</li>
+        </ul>
+      </div>
+
+      <div class="goal">
+        <h3>Lose Body Fat</h3>
+        <p>Choose this if reducing body fat is your main priority.</p>
+        <ul>
+          <li>Strength training</li>
+          <li>Regular daily movement</li>
+          <li>Cardio when appropriate</li>
+          <li>Sustainable eating habits</li>
+          <li>Adequate protein and consistency</li>
+        </ul>
+      </div>
+
+      <div class="goal">
+        <h3>Get Stronger</h3>
+        <p>Choose this if you want to improve strength and physical performance.</p>
+        <ul>
+          <li>Resistance training</li>
+          <li>Proper form</li>
+          <li>Gradually increasing weight or reps</li>
+          <li>Tracking key lifts</li>
+          <li>Recovery and consistency</li>
+        </ul>
+      </div>
+
+      <div class="goal">
+        <h3>Body Recomposition</h3>
+        <p>Choose this if you want to build muscle while gradually reducing body fat.</p>
+        <ul>
+          <li>Consistent strength training</li>
+          <li>Progressive overload</li>
+          <li>Adequate protein</li>
+          <li>Balanced nutrition</li>
+          <li>Patience and recovery</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head">
+      <div class="eyebrow">Where You Train</div>
+      <h2>Home, gym, or both can work.</h2>
+      <p>The best training environment is the one you can follow consistently.</p>
+    </div>
+
+    <div class="training-grid">
+      <div class="training">
+        <h3>At Home</h3>
+        <p>A strong option if you are new, value privacy, have a busy schedule, or do not currently have a gym membership.</p>
+        <ul>
+          <li>Dumbbells</li>
+          <li>Resistance bands</li>
+          <li>Exercise mat</li>
+          <li>Bench or sturdy surface</li>
+        </ul>
+      </div>
+
+      <div class="training">
+        <h3>At The Gym</h3>
+        <p>Gym training gives you access to more equipment and makes it easier to increase resistance as you get stronger.</p>
+        <ul>
+          <li>Dumbbells and barbells</li>
+          <li>Cable machines</li>
+          <li>Leg press and Smith machine</li>
+          <li>Cardio equipment</li>
+        </ul>
+      </div>
+
+      <div class="training">
+        <h3>Use Both</h3>
+        <p>You can train at the gym when your schedule allows and use home workouts when you need convenience.</p>
+        <ul>
+          <li>Flexible scheduling</li>
+          <li>Fewer missed workouts</li>
+          <li>More ways to stay consistent</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head">
+      <div class="eyebrow">Know Your Baseline</div>
+      <h2>Record where you are today.</h2>
+      <p>Tracking is optional. The purpose is simply to give yourself something useful to compare against later—not to judge your starting point.</p>
+    </div>
+
+    <div class="baseline">
+      <div class="baseline-card">
+        <h3>Helpful things to track</h3>
+        <p>Use only the methods that feel useful to you. Consistency matters more than tracking everything.</p>
+        <div class="metrics">
+          <div class="metric"><strong>Body Weight</strong><span>Helpful when viewed over time, not from one measurement.</span></div>
+          <div class="metric"><strong>Waist + Hips</strong><span>Retake measurements every few weeks under similar conditions.</span></div>
+          <div class="metric"><strong>Progress Photos</strong><span>Front, side, and back in similar lighting and clothing.</span></div>
+          <div class="metric"><strong>Strength Benchmarks</strong><span>Track exercises such as leg press, hip thrusts, dumbbell work, or push-ups.</span></div>
+          <div class="metric"><strong>Daily Steps</strong><span>Understand your current activity level before trying to change it.</span></div>
+          <div class="metric"><strong>Training Experience</strong><span>Beginner, intermediate, or experienced is enough as a starting reference.</span></div>
+        </div>
+      </div>
+
+      <div class="baseline-card">
+        <h3>Progress is more than the scale.</h3>
+        <p>
+          Strength, measurements, photos, energy, consistency, workout performance, and how your clothes fit can all help you understand progress.
+        </p>
+        <p>
+          Your starting point is simply your baseline. It is not a grade, and it does not need to be perfect.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="callout">
+    <div>
+      <div class="eyebrow">You’re Ready</div>
+      <h2>Your next destination is the 7-Day Destiny Starter Plan.</h2>
+      <p>
+        You now know what Destiny Fit Club includes, which goal you want to focus on, where you can train, and what you may want to track.
+        The next step is simply to begin.
+      </p>
+    </div>
+    <div class="callout-side">
+      <strong>Remember</strong>
+      <span>You do not have to be perfect to make progress. Build the habit first. Let consistency do the heavy lifting.</span>
+    </div>
+  </section>
+
+  <section class="pro">
+    <div>
+      <div class="eyebrow" style="color:#E8B9C5;">When You’re Ready For More</div>
+      <h2>Destiny Fit Club Pro gives you the full system.</h2>
+      <p>
+        Pro is designed for members who want structured weekly programming, a deeper workout and nutrition library, challenges, new member content, and the complete Destiny Fitness experience.
+      </p>
+    </div>
+    <div>
+      <a href="https://whop.com/destinyfitness/pro-tier-7c/" target="_blank" rel="noopener">Explore Destiny Fit Club Pro</a>
+    </div>
+  </section>
+
+  <div class="footer">
+    Destiny Fit Club • Start where you are. Build from there.
+  </div>
+
+</main>
+</body>
+</html>
